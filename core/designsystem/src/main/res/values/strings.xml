@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Course</string>
+
+    <!-- general -->
+    <string name="clear">Clear</string>
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email</string>
+    <string name="email_placeholder">your@email.com</string>
+    <string name="email_empty_error">Email не может быть пустым</string>
+    <string name="email_invalid_error">Недействительный адрес электронной почты или пароль</string>
+    <string name="password">Пароль</string>
+    <string name="password_placeholder_hide">••••••••••</string>
+    <string name="password_placeholder_show">your_password</string>
+    <string name="password_empty_error">Пароль не может быть пустым</string>
+    <string name="password_too_short_error">Пароль должен содержать хотя бы 4 символа</string>
+    <string name="url_vk">https://vk.com/</string>
+    <string name="url_ok">https://ok.ru/</string>
+
+    <!-- sign in screen -->
+    <string name="sign_in">Вход</string>
+    <string name="stay_connected">Stay connected</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="dont_have_account">Нету аккаунта?</string>
+    <string name="email_not_associated_with_account">Этот адрес электронной почты не связан с учетной записью</string>
+    <string name="incorrect_password">Неверный пароль и Email</string>
+
+    <!-- sign up screen -->
+    <string name="sign_up">Регистрация</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="have_account">Уже есть аккаунт?</string>
+    <string name="enter">Войти</string>
+    <string name="email_already_has_account_associated">К этому адресу электронной почты уже привязана учетная запись</string>
+    <string name="an_error_occurred">An error occurred</string>
+
+    <!-- home screen -->
+    <string name="nav_home">Главная</string>
+    <string name="nav_bookmarks">Избранное</string>
+    <string name="nav_user">Аккаунт</string>
+    <string name="error">Ошибка:</string>
+    <string name="more_detailed">Подробнее -></string>
+    <string name="rouble">р</string>
+    <string name="search">Search course...</string>
+    <string name="filter_date">По дате добавления</string>
+
+    <!-- favorite screen -->
+    <string name="fav_name">Имя:</string>
+    <string name="price">Price:</string>
+    <string name="favorite">Избранное</string>
+
+    <!-- course screen -->
+    <string name="author">Автор</string>
+    <string name="academy">Merion Academy</string>
+    <string name="start_course">Начать курс</string>
+    <string name="nav_to_platform">Перейти на платформу</string>
+    <string name="about_course">О курсе</string>
+
+    <!-- user screen -->
+    <string name="profile">Профиль</string>
+    <string name="your_course">Ваши курсы</string>
+    <string name="progress_percent">50%</string>
+    <string name="completed_lesson">22</string>
+    <string name="total_lesson">/44 уроков</string>
+
+</resources>
