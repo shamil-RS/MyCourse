@@ -1,8 +1,6 @@
 package com.example.course.network
 
-import android.content.Context
 import com.example.course.core.model.CoursesResponse
-import dagger.hilt.android.qualifiers.ApplicationContext
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
@@ -51,29 +49,6 @@ class CoursesApiClient @Inject constructor(
             }
         }.bodyAsText()
 
-        return json.decodeFromString<CoursesResponse>(responseText)
-    }
-}
-
-class CoursesApiClient1 @Inject constructor(
-    @ApplicationContext private val context: Context, // Добавляем контекст
-    private val json: Json
-) : KtorApiService {
-
-    override suspend fun getCourses(
-        title: String?,
-        price: Double?,
-        rate: Double?,
-        startDate: String?,
-        hasLike: Boolean?,
-        publishDate: String?
-    ): CoursesResponse {
-        // Читаем файл courses.json из assets
-        val responseText = context.assets.open("courses.json")
-            .bufferedReader()
-            .use { it.readText() }
-
-        // Парсим JSON в вашу модель данных
         return json.decodeFromString<CoursesResponse>(responseText)
     }
 }
