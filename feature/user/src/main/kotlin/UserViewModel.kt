@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.course.core.data.repository.MainRepository
 import com.example.course.core.model.Course
+import com.example.course.designsystem.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -47,14 +48,14 @@ enum class UserAction {
 
 data class UserBlockItem(
     val id: Int,
-    val text: String,
+    val text: Int,
     val action: UserAction = UserAction.LOGOUT
 ) {
     companion object {
         val mockData = listOf(
-            UserBlockItem(1, "Написать в поддержку"),
-            UserBlockItem(2, "Настройки"),
-            UserBlockItem(3, "Выйти из аккаунта"),
+            UserBlockItem(1, R.string.write_to_support),
+            UserBlockItem(2, R.string.settings),
+            UserBlockItem(3, R.string.logout),
         )
     }
 }

@@ -5,7 +5,6 @@
     <string name="clear">Clear</string>
     <string name="show">Show</string>
     <string name="hide">Hide</string>
-    <string name="logout">Logout</string>
     <string name="email">Email</string>
     <string name="email_placeholder">your@email.com</string>
     <string name="email_empty_error">Email не может быть пустым</string>
@@ -58,6 +57,9 @@
 
     <!-- user screen -->
     <string name="profile">Профиль</string>
+    <string name="write_to_support">Написать в поддержку</string>
+    <string name="settings">Настройки</string>
+    <string name="logout">Выйти из аккаунта</string>
     <string name="your_course">Ваши курсы</string>
     <string name="progress_percent">50%</string>
     <string name="completed_lesson">22</string>

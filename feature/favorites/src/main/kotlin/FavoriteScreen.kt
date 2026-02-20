@@ -31,7 +31,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -66,45 +65,41 @@ fun FavoriteScreen(navBackStack: NavBackStack<NavKey>) {
     val dpCacheWindow = LazyLayoutCacheWindow(behind = 150.dp, ahead = 100.dp)
     val state = rememberLazyListState(dpCacheWindow)
 
-    Scaffold(
-        containerColor = Color.Black
+    LazyColumn(
+        state = state,
+        modifier = Modifier.background(Color.Black),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        LazyColumn(
-            state = state,
-            modifier = Modifier.padding(it),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
 
-            item {
-                Text(
-                    text = stringResource(R.string.favorite),
-                    modifier = Modifier.padding(16.dp),
-                    color = Color.White,
-                    fontSize = 20.sp
-                )
-            }
+        item {
+            Text(
+                text = stringResource(R.string.favorite),
+                modifier = Modifier.padding(16.dp),
+                color = Color.White,
+                fontSize = 20.sp
+            )
+        }
 
-            items(
-                items = favoriteCourses,
-                key = { course -> course.id }
-            ) { course ->
-                val img = Img.mock[course.id % Img.mock.size]
-                FavoriteItem(
-                    course = course,
-                    imageRes = img.image,
-                    isFavorite = course.hasLike,
-                    favIconColor = Color.Black,
-                    onClick = {
-                        navBackStack.add(
-                            CourseScreen(
-                                course = course,
-                                img = img.image,
-                            )
+        items(
+            items = favoriteCourses,
+            key = { course -> course.id }
+        ) { course ->
+            val img = Img.mock[course.id % Img.mock.size]
+            FavoriteItem(
+                course = course,
+                imageRes = img.image,
+                isFavorite = course.hasLike,
+                favIconColor = Color.Black,
+                onClick = {
+                    navBackStack.add(
+                        CourseScreen(
+                            course = course,
+                            img = img.image,
                         )
-                    },
-                    onFavoriteClick = { viewModel.setFavorite(course.id) }
-                )
-            }
+                    )
+                },
+                onFavoriteClick = { viewModel.setFavorite(course.id) }
+            )
         }
     }
 }

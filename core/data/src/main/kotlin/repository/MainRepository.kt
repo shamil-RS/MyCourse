@@ -10,7 +10,6 @@ import com.example.course.core.network.Dispatcher
 import com.example.course.network.KtorApiService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -38,7 +37,7 @@ class RepositoryImpl @Inject constructor(
     private val api: KtorApiService,
     private val courseDao: CourseDao,
     @Dispatcher(CourseAppDispatchers.IO)
-    val ioDispatcher: CoroutineDispatcher
+    private val ioDispatcher: CoroutineDispatcher
 ) : MainRepository {
     override fun getCourses(
         title: String?,
@@ -60,30 +59,18 @@ class RepositoryImpl @Inject constructor(
         emit(response)
     }.flowOn(ioDispatcher)
 
-    override fun getCourseById(id: Int): Flow<Course?> {
-        return courseDao.getCourseById(id)
+    override fun getCourseById(id: Int): Flow<Course?> =
+        courseDao.getCourseById(id)
             .map { it?.asDomain() }
-            .flowOn(ioDispatcher)
-    }
 
-    override suspend fun setFavorite(courseId: Int) {
-        val course = courseDao.getCourseById(courseId).first()
+    override suspend fun setFavorite(courseId: Int) = courseDao.updateFavorite(courseId)
 
-        course?.let {
-            courseDao.updateFavorite(it.id, !it.hasLike)
-        }
-    }
-
-    override fun getFavoriteCourses(): Flow<List<Course>> {
-        return courseDao.getFavoriteCourses()
+    override fun getFavoriteCourses(): Flow<List<Course>> =
+        courseDao.getFavoriteCourses()
             .map { list -> list.asDomain() }
-            .flowOn(ioDispatcher)
-    }
 
-    override fun getAllCoursesFlow(): Flow<List<Course>> {
-        return courseDao.getAllCoursesFlow()
+    override fun getAllCoursesFlow(): Flow<List<Course>> =
+        courseDao.getAllCoursesFlow()
             .map { it.asDomain() }
-            .flowOn(ioDispatcher)
-    }
 }
 

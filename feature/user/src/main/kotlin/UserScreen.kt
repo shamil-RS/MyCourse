@@ -147,9 +147,7 @@ fun BlockItem(
                     .fillMaxWidth()
                     .clip(shape)
                     .background(AlmostBlack)
-                    .clickable {
-                        onClick(item)
-                    }
+                    .clickable { onClick(item) }
             ) {
                 Column(
                     modifier = Modifier.padding(14.dp),
@@ -159,7 +157,7 @@ fun BlockItem(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text(item.text, color = Color.White)
+                        Text(stringResource(item.text), color = Color.White)
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
                             modifier = Modifier.size(12.dp),

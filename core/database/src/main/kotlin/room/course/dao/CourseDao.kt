@@ -18,8 +18,8 @@ interface CourseDao {
     @Query("SELECT * FROM course WHERE id = :id_")
     fun getCourseById(id_: Int): Flow<CourseDbo?>
 
-    @Query("UPDATE course SET hasLike = :isHasLike WHERE id = :id")
-    suspend fun updateFavorite(id: Int, isHasLike: Boolean)
+    @Query("UPDATE course SET hasLike = NOT hasLike WHERE id = :id")
+    suspend fun updateFavorite(id: Int)
 
     @Query("SELECT * FROM course WHERE hasLike = 1")
     fun getFavoriteCourses(): Flow<List<CourseDbo>>
